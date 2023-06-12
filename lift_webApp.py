@@ -4,13 +4,15 @@ import pandas as pd
 from PIL import Image
 import _pickle as pickle
 
+#Lay out web app frameowkr using streamlit st tags (title, write, image)
+
 st.title('Weightlifting Max Potential Lift Calculator - Use this to motivate you to work for what is possible!')
 st.write('Enter your information below to receive an estimate of what your max potential lifts could be, with the right time and hard work of course!')
 # Image obtained from https://unsplash.com/photos/WvDYdXDzkhs free to use under the unsplash license.
 image = Image.open('./victor-freitas-WvDYdXDzkhs-unsplash.jpg')
 st.image(image, use_column_width=True)
 
-# Import the pickle model that has been saved from weightlifting_analysis_and_modelling_060123.ipynb
+# Import the pickle model for each lift that has been saved from weightlifting_analysis_and_modelling_060123.ipynb
 with open('./squat_model.pkl','rb') as file:
   squat_model = pickle.load(file)
 
@@ -46,7 +48,9 @@ def liftEstimate(user_inputs_df):
 
   return int(round(squat_est[0][0] * 2.205 ,0)), int(round(deadlift_est[0][0] * 2.205 ,0)), int(round(bench_est[0][0] * 2.205,0))
 
-# Getting the user inputs:
+# ------------------------------------------------------------------------
+
+# Getting the user inputs via streamlit web app number_input() and selectbox():
 user_age = st.number_input("Enter your age", value=0)
 user_weight = (st.number_input("Enter your body weight (in lbs)", value=0)) / 2.205 # Converting back to kg for model, start with lbs assuming our users will be in the US
 user_commitment = st.number_input("Enter your commitment level (1 being lowest, 10 being highest!)", value=0)
