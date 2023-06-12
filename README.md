@@ -19,7 +19,7 @@ It's one thing to say "I want to get stronger," but it's more impactful and sets
 To solve this problem of people lacking clear goals and/or motivational targets for their personal health in weightlifting I decided to use the powerlifting-database from Kaggle to do the following:
 
 1. Perform high level data cleaning + analysis for lift weight capability vs. other information about the people included in the dataset.
-2. Build machine learning models to predict what a maximum lift weight could be for a user based on their characteristics. The model will be trained on a subset of the data and then tested for accuracy on a test set of the data.
+2. Build machine learning models to predict what a maximum lift weight could be for a user based on their characteristics. The model will be trained on a subset of the data and then tested for accuracy on a test set of the data by using the negative mean squared error metric. This will determine the average delta in accuracy prediction for each value and allow for an easy way to identify how well our model is doing for this continuous variable prediction problem. 
 3. Build a plotly web app that can be easily hosted on a local machine to act as a GUI for the saved machine learning models. A user of the web app can enter in their characteristics and receive a predicted maximum lift weight that they could set as a future achievable goal.
 
 ## Installation <a name="installation"></a>
